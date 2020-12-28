@@ -125,14 +125,14 @@ var saveScreen;
 saveScreen = 'main';
 function link(a) {
     //     $("img").toggleClass('display');
-  
+
     //     $("h6").toggleClass('display');
     //     $("p").toggleClass('display');
     // $("img").removeClass("display")
     // $("h6").removeClass("display")
     // $("p").removeClass("display")
 
-    
+
     document.getElementById('loader-wrapper').style.display = 'flex';
     scrollBtn.style.display = 'flex';
     document.body.style.overflow = 'auto';
@@ -278,6 +278,8 @@ function updateProjectUrl() {
             nav.getElementsByTagName('a')[i].click()
         }
     }
+
+    window.history.pushState("", "", "/as-onepager2/" + saveScreen);
 }
 
 updateProjectUrl()
@@ -287,7 +289,7 @@ window.onhashchange = function () {
     if (window.location.href.substring(window.location.href.lastIndexOf('/') + 0) !== '/') {
         // window.history.pushState("", "", "");
         updateProjectUrl()
-        window.history.pushState("", "", "/" + saveScreen);
+
     } else {
         closeProject()
     }
