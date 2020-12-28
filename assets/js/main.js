@@ -280,15 +280,15 @@ function updateProjectUrl() {
     }
 }
 
-// updateProjectUrl()
+updateProjectUrl()
 
 // make back and forward browser buttons also change projects
-// window.onhashchange = function () {
-//     if (window.location.href.substring(window.location.href.lastIndexOf('/') + 0) !== '/') {
-//         // window.history.pushState("", "", "");
-//         updateProjectUrl()
-//         window.history.pushState("", "", "/as-onepager2/" + saveScreen);
-//     } else {
-//         closeProject()
-//     }
-// }
+window.onhashchange = function () {
+    if (window.location.href.substring(window.location.href.lastIndexOf('/') + 0) !== '/') {
+        // window.history.pushState("", "", "");
+        updateProjectUrl()
+        window.history.pushState("", "", "/" + saveScreen);
+    } else {
+        closeProject()
+    }
+}
