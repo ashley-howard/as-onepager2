@@ -287,7 +287,7 @@ window.onhashchange = function () {
     if (window.location.href.substring(window.location.href.lastIndexOf('/') + 0) !== '/') {
         // window.history.pushState("", "", "");
         updateProjectUrl()
-        window.history.pushState("", "", "/" + saveScreen);
+        window.history.pushState("", "", "/as-onepager2/" + saveScreen);
     } else {
         closeProject()
     }
