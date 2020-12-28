@@ -262,6 +262,7 @@ function link(a) {
 
     }
     // getContent() 
+    window.history.pushState("", "", "/as-onepager2/" + saveScreen);
 }
 
 function updateProjectUrl() {
@@ -279,7 +280,7 @@ function updateProjectUrl() {
         }
     }
 
-    window.history.pushState("", "", "/as-onepager2/" + saveScreen);
+    // window.history.pushState("", "", "/as-onepager2/" + saveScreen);
 }
 
 updateProjectUrl()
