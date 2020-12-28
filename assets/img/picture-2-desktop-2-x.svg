@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <path fill="#C9F4FF" d="M0 0H1024V1024H0z" transform="translate(-416 -96) translate(416 96) matrix(-1 0 0 1 1024 0)"/>
+                <g fill="#4992A5" font-family="SourceSansPro-Regular, Source Sans Pro">
+                    <text font-size="30" transform="translate(-416 -96) translate(416 96) translate(373 474)">
+                        <tspan x="0" y="30">picture-2-desktop@2x</tspan>
+                    </text>
+                    <text font-size="24" transform="translate(-416 -96) translate(416 96) translate(373 474)">
+                        <tspan x="81" y="70">(no mobile)</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
