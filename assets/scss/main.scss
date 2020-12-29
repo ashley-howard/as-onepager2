@@ -62,7 +62,8 @@ hr {
         display: flex;
         flex-direction: column;
 
-        a {
+        .link {
+            cursor: pointer;
             text-decoration: none;
             border-bottom: 1px solid #e4e4e4;
             padding: 17px 0;
@@ -179,7 +180,7 @@ main {
             width: auto;
         }
 
-        nav a {
+        nav .link {
             display: none;
         }
     }

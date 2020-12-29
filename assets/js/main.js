@@ -71,11 +71,11 @@ $(window).on("load", function () {
         }
 
         setTimeout(function () {
-            $(".single").addClass('darken')
+            $(".link").addClass('darken')
         }, 2000);
 
     } else {
-        $(".single").delay(1800).fadeIn(2000)
+        $(".link").delay(1800).fadeIn(2000)
         $(".loader-wrapper-menu").delay(2000).fadeOut(0)
     }
 
@@ -123,20 +123,13 @@ function closeProject() {
 
 var saveScreen;
 saveScreen = 'main';
-function link(a) {
-    //     $("img").toggleClass('display');
+function link(a, id) {
 
-    //     $("h6").toggleClass('display');
-    //     $("p").toggleClass('display');
-    // $("img").removeClass("display")
-    // $("h6").removeClass("display")
-    // $("p").removeClass("display")
-
+    console.log(a)
 
     document.getElementById('loader-wrapper').style.display = 'flex';
     scrollBtn.style.display = 'flex';
     document.body.style.overflow = 'auto';
-    // document.getElementById('main-img').style.display = 'none';
 
     if (window.innerWidth <= 810) {
         sidebar.style.display = "none";
@@ -145,99 +138,45 @@ function link(a) {
         document.getElementsByClassName('close')[0].style.display = "block";
     }
 
-    // for (var i = 0; i < imgs.length; i++) {
-    //     imgs[i].classList.remove('display')
-    // }
-    // for (var i = 0; i < h6s.length; i++) {
-    //     h6s[i].classList.remove('display')
-    // }
-    // for (var i = 0; i < ps.length; i++) {
-    //     ps[i].classList.remove('display')
-    // }
-
     saveScreen !== 'main' ? document.getElementById(saveScreen).style.display = 'none' : null;
 
-    var linkId;
-    if (!window.document.documentMode && window.location.href.includes("index.html")) {
-        linkId = a.href.substring(a.href.lastIndexOf('/') + 12);
-    }
-    // for IE 
-    else if (window.document.documentMode && window.location.href.indexOf('index.html') > 0) {
-        linkId = a.href.substring(a.href.lastIndexOf('/') + 12);
-    }
-    else {
-        linkId = a.href.substring(a.href.lastIndexOf('/') + 2);
-    }
+    // var linkId;
+    // if (!window.document.documentMode && window.location.href.includes("index.html")) {
+    //     linkId = id;
+    //     // linkId = id.substring(id.lastIndexOf('/') + 12);
+    //     console.log(linkId)
+    // }
+    // // for IE 
+    // else if (window.document.documentMode && window.location.href.indexOf('index.html') > 0) {
+    //     linkId = id;
+    //     // linkId = id.substring(id.lastIndexOf('/') + 12);
+    //     console.log(linkId)
+    // }
+    // else {
+    //     linkId = id;
+    //     // linkId = id.substring(id.lastIndexOf('/') + 2);
+    //     console.log(linkId)
+    // }
 
-    saveScreen = linkId;
+    saveScreen = id;
 
     document.getElementById('main-img').style.display = "none"
-
-
-    // $(".loader-wrapper").delay(2000).fadeOut(2000);
 
     setTimeout(function () {
         $(".loader-wrapper").fadeOut(0);
     }, 2000);
 
-
-
-    // setTimeout(function () {
-    //     window.onscroll = function () { scrollFunction() };
-    // }, 2000);
-
-    // setTimeout(function () {
-    //     getContent();
-    // }, 3000);
-
-    // give a class of "fade in" to the first img, headings, and p
-    //  is there way to give this class to "first of type" in JS?
-    // $("main img:nth-of-type(1)").css('opacity') = '1';
-    // $("main img:nth-of-type(2)").css('opacity') = '1';
-
-    // document.getElementById(linkId).style.display = 'block';
-
-
-
-
-    // display none for project
-    // then fade in here
-
-    // for (var i = 0; i < imgs.length; i++) {
-    //     imgs[i].classList.remove('display')
-    // }
-    // for (var i = 0; i < h6s.length; i++) {
-    //     h6s[i].classList.remove('display')
-    // }
-    // for (var i = 0; i < ps.length; i++) {
-    //     ps[i].classList.remove('display')
-    // }
-
-
-    // $("img").removeClass("display")
-    // $("h6").removeClass("display")
-    // $("p").removeClass("display")
-
-
-    // $("#" + linkId).delay(2000).fadeIn(2000);
-
-
-
-    items = document.querySelectorAll('.single.active');
+    items = document.querySelectorAll('.link.active');
 
     if (items.length) {
-        items[0].className = 'single darken';
+        items[0].className = 'link darken';
     }
 
-    a.className = 'single darken active';
+    a.className = 'link darken active';
 
     $('html, body').animate({
-        scrollTop: $("#" + linkId).offset()
+        scrollTop: $("#" + saveScreen).offset()
     });
-
-    // $("img").removeClass("display")
-    // $("h6").removeClass("display")
-    // $("p").removeClass("display")
 
     // defaultHeight = 100;
     setTimeout(function () {
@@ -245,9 +184,8 @@ function link(a) {
         $("h6").removeClass("display")
         $("h5").removeClass("display")
         $("p").removeClass("display")
-        $("#" + linkId).fadeIn(2000);
+        $("#" + saveScreen).fadeIn(2000);
         getContent();
-
 
         setTimeout(function () {
             defaultHeight = 85;
@@ -262,21 +200,22 @@ function link(a) {
 
     }
     // getContent() 
-    window.history.pushState("", "", "/as-onepager2/" + saveScreen);
+    // window.history.pushState("", "", `${'/as-onepager2/' + saveScreen}`);
+    window.history.pushState("", "", `${saveScreen}`);
 }
 
 function updateProjectUrl() {
-    for (var i = 0; i < nav.getElementsByTagName('a').length; i++) {
+    for (var i = 0; i < nav.getElementsByClassName('link').length; i++) {
         if (window.location.href.substring(window.location.href.lastIndexOf('/') + 1) == "" || window.location.href.substring(window.location.href.lastIndexOf('/') + 1) == "index.html") {
 
         }
-        else if (!window.document.documentMode && nav.getElementsByTagName('a')[i].href.includes(window.location.href.substring(window.location.href.lastIndexOf('/') + 0))) {
-            nav.getElementsByTagName('a')[i].click()
+        else if (!window.document.documentMode && nav.getElementsByClassName('link')[i].getAttribute('onclick').includes(window.location.href.substring(window.location.href.lastIndexOf('/') + 1))) {
+            nav.getElementsByClassName('link')[i].click()
         }
 
         // IE
-        else if (window.document.documentMode && nav.getElementsByTagName('a')[i].href.indexOf(window.location.href.substring(window.location.href.lastIndexOf('/') + 1)) > 0) {
-            nav.getElementsByTagName('a')[i].click()
+        else if (window.document.documentMode && nav.getElementsByClassName('link')[i].getAttribute('onclick').indexOf(window.location.href.substring(window.location.href.lastIndexOf('/') + 1)) > 0) {
+            nav.getElementsByClassName('link')[i].click()
         }
     }
 
@@ -287,7 +226,7 @@ updateProjectUrl()
 
 // make back and forward browser buttons also change projects
 window.onhashchange = function () {
-    if (window.location.href.substring(window.location.href.lastIndexOf('/') + 0) !== '/') {
+    if (window.location.href.substring(window.location.href.lastIndexOf('/') + 1) !== '/') {
         // window.history.pushState("", "", "");
         updateProjectUrl()
 
