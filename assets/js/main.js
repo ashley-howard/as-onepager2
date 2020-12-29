@@ -200,8 +200,8 @@ function link(a, id) {
 
     }
     // getContent() 
-    // window.history.pushState("", "", `${'/as-onepager2/' + saveScreen}`);
-    window.history.pushState("", "", `${saveScreen}`);
+    window.history.pushState("", "", `${'/as-onepager2/' + saveScreen}`);
+    // window.history.pushState("", "", `${saveScreen}`); // USE THIS!!!!!!!
 }
 
 function updateProjectUrl() {
